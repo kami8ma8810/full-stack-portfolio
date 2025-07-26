@@ -1,0 +1,25 @@
+{
+  "name": "full-stack-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "フロントエンドエンジニアのポートフォリオサイト（ブログ機能付き）",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "test": "turbo test",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\""
+  },
+  "keywords": ["portfolio", "blog", "nextjs", "cloudflare"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "turbo": "latest",
+    "typescript": "^5.7.2"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=18"
+  }
+}
