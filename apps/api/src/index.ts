@@ -9,7 +9,6 @@ import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
 import { prettyJSON } from 'hono/pretty-json';
-import { secureHeaders } from 'hono/secure-headers';
 import { timing } from 'hono/timing';
 
 import type { Bindings } from './types/bindings';
@@ -17,14 +16,18 @@ import { blogRoutes } from './routes/blog';
 import { worksRoutes } from './routes/works';
 import { contactRoutes } from './routes/contact';
 import { statsRoutes } from './routes/stats';
+import { cspReportRoutes } from './routes/csp-report';
 import { errorHandler } from './middleware/error-handler';
 import { rateLimiter } from './middleware/rate-limiter';
+import { getSecurityHeadersConfig, getCorsOrigin, type SecureHeadersVariables } from './middleware/security-headers';
 
 /**
  * Honoアプリケーションのインスタンスを作成
  * Bindingsの型を指定することで、環境変数やバインディングの型安全性を確保
+ * SecureHeadersVariablesを追加してNonce対応
  */
-const app = new Hono<{ Bindings: Bindings }>();
+type Variables = SecureHeadersVariables;
+const app = new Hono<{ Bindings: Bindings; Variables: Variables }>();
 
 /**
  * グローバルミドルウェアの設定
@@ -35,24 +38,23 @@ const app = new Hono<{ Bindings: Bindings }>();
 app.use(
   '*',
   cors({
-    origin: (origin) => {
-      // 開発環境と本番環境のオリジンを許可
-      const allowedOrigins = [
-        'http://localhost:3000',
-        'https://portfolio.example.com', // 本番URLに置き換え
-      ];
-      return allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
+    origin: (origin, c) => {
+      // セキュリティを強化したCORS設定
+      return getCorsOrigin(origin || '', c.env);
     },
     allowHeaders: ['Content-Type', 'Authorization'],
     allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    exposeHeaders: ['X-Total-Count'], // ページネーション用
+    exposeHeaders: ['X-Total-Count', 'X-RateLimit-Limit', 'X-RateLimit-Remaining'],
     maxAge: 86400, // プリフライトリクエストのキャッシュ時間（24時間）
     credentials: true,
   }),
 );
 
-// セキュリティヘッダーの設定
-app.use('*', secureHeaders());
+// セキュリティヘッダーの設定（環境に応じた設定を適用）
+app.use('*', async (c, next) => {
+  const config = getSecurityHeadersConfig(c.env);
+  return config(c, next);
+});
 
 // リクエストログの出力（開発環境のみ推奨）
 app.use('*', logger());
@@ -110,6 +112,7 @@ app.route('/api/blog', blogRoutes);
 app.route('/api/works', worksRoutes);
 app.route('/api/contact', contactRoutes);
 app.route('/api/stats', statsRoutes);
+app.route('/api/csp-report', cspReportRoutes);
 
 /**
  * 404ハンドラー

@@ -11,7 +11,6 @@ import { zValidator } from '@hono/zod-validator';
 import { HTTPException } from 'hono/http-exception';
 import type { Bindings } from '../types/bindings';
 import { ContactService } from '../services/contact';
-import type { ContactForm } from '@portfolio/types';
 
 const contactRoutes = new Hono<{ Bindings: Bindings }>();
 
