@@ -45,10 +45,25 @@ full-stack-portfolio/
 
 ### 前提条件
 
-- Node.js 18以上
+- Node.js 22以上
 - pnpm 9.15.0以上
 - Cloudflareアカウント
 - Notionアカウント（ブログ機能を使用する場合）
+
+#### Node.jsバージョン管理
+
+プロジェクトではNode.js v22を使用しています。以下のツールでバージョンを管理できます：
+
+```bash
+# nvmを使用する場合
+nvm use
+
+# fnmを使用する場合
+fnm use
+
+# asdfを使用する場合
+asdf install
+```
 
 ### 1. リポジトリのクローン
 
