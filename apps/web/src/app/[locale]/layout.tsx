@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, unstable_setRequestLocale } from "next-intl/server";
+import { getMessages } from "next-intl/server";
 import { Inter } from "next/font/google";
 import { QueryProvider } from "@/providers/query-provider";
 import { Header } from "@/components/layout/header";
@@ -24,9 +24,6 @@ export default async function LocaleLayout({
   if (!locales.includes(locale as 'en' | 'ja')) {
     notFound();
   }
-
-  // Enable static rendering
-  unstable_setRequestLocale(locale);
 
   // Providing all messages to the client
   // side is the easiest way to get started
