@@ -22,9 +22,9 @@ export function Header() {
       <nav className="container flex h-16 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <span className="hidden font-bold sm:inline-block">
-            Hiroki Kamiyama
+            Hank
           </span>
-          <span className="font-bold sm:hidden">HK</span>
+          <span className="font-bold sm:hidden">H</span>
         </Link>
 
         <div className="hidden flex-1 items-center justify-end space-x-6 md:flex">

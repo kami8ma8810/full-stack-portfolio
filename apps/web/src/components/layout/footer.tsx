@@ -8,9 +8,9 @@ const footerLinks = {
     { name: 'Contact', href: '/contact' },
   ],
   social: [
-    { name: 'GitHub', href: 'https://github.com/hirokikamiyama' },
-    { name: 'Twitter', href: 'https://twitter.com/hirokikamiyama' },
-    { name: 'LinkedIn', href: 'https://linkedin.com/in/hirokikamiyama' },
+    { name: 'GitHub', href: 'https://github.com/hankkamy' },
+    { name: 'Twitter', href: 'https://twitter.com/hankkamy' },
+    { name: 'LinkedIn', href: 'https://linkedin.com/in/hankkamy' },
   ],
 };
 
@@ -20,7 +20,7 @@ export function Footer() {
       <div className="container py-8 md:py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div className="space-y-3">
-            <h3 className="text-lg font-semibold">Hiroki Kamiyama</h3>
+            <h3 className="text-lg font-semibold">Hank</h3>
             <p className="text-sm text-muted-foreground">
               Frontend Engineer passionate about creating exceptional web experiences.
             </p>
@@ -63,7 +63,7 @@ export function Footer() {
 
         <div className="mt-8 border-t pt-8">
           <p className="text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Hiroki Kamiyama. All rights reserved.
+            © {new Date().getFullYear()} Hank. All rights reserved.
           </p>
         </div>
       </div>

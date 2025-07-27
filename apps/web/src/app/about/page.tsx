@@ -21,16 +21,16 @@ export default function AboutPage() {
           
           <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
             <p>
-              Hi, I'm Hiroki Kamiyama, a passionate frontend engineer with a love
+              Hi, I&apos;m Hank (formally Hayato Kamiyama), a Japanese frontend engineer with a love
               for creating beautiful, functional, and accessible web experiences.
             </p>
             <p>
-              I specialize in React, TypeScript, and modern web technologies. I
+              I go by Hank professionally. I specialize in React, TypeScript, and modern web technologies. I
               believe in writing clean, maintainable code and building products
-              that make a difference in people's lives.
+              that make a difference in people&apos;s lives.
             </p>
             <p>
-              When I'm not coding, you can find me exploring new technologies,
+              When I&apos;m not coding, you can find me exploring new technologies,
               contributing to open source projects, or sharing my knowledge
               through blog posts and talks.
             </p>
@@ -43,8 +43,8 @@ export default function AboutPage() {
         <section className="mt-16">
           <h2 className="mb-6 text-2xl font-semibold">Get in Touch</h2>
           <p className="text-lg text-muted-foreground">
-            I'm always interested in hearing about new opportunities and
-            interesting projects. Feel free to reach out if you'd like to work
+            I&apos;m always interested in hearing about new opportunities and
+            interesting projects. Feel free to reach out if you&apos;d like to work
             together or just want to say hello!
           </p>
         </section>

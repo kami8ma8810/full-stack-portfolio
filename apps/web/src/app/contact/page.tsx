@@ -12,18 +12,18 @@ export default function ContactPage() {
       <div className="mx-auto max-w-2xl">
         <h1 className="mb-8 text-4xl font-bold tracking-tight">Contact</h1>
         <p className="mb-12 text-lg text-muted-foreground">
-          Have a project in mind or want to collaborate? I'd love to hear from
-          you. Send me a message and I'll get back to you as soon as possible.
+          Have a project in mind or want to collaborate? I&apos;d love to hear from
+          you. Send me a message and I&apos;ll get back to you as soon as possible.
         </p>
         
         <div className="mb-12 space-y-6">
           <div>
             <h2 className="mb-2 text-lg font-semibold">Email</h2>
             <a
-              href="mailto:hello@hirokikamiyama.com"
+              href="mailto:hello@hankkamy.com"
               className="text-muted-foreground hover:text-foreground"
             >
-              hello@hirokikamiyama.com
+              hello@hankkamy.com
             </a>
           </div>
           
@@ -31,7 +31,7 @@ export default function ContactPage() {
             <h2 className="mb-2 text-lg font-semibold">Social</h2>
             <div className="flex gap-4">
               <a
-                href="https://github.com/hirokikamiyama"
+                href="https://github.com/hankkamy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground"
@@ -39,7 +39,7 @@ export default function ContactPage() {
                 GitHub
               </a>
               <a
-                href="https://twitter.com/hirokikamiyama"
+                href="https://twitter.com/hankkamy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground"
@@ -47,7 +47,7 @@ export default function ContactPage() {
                 Twitter
               </a>
               <a
-                href="https://linkedin.com/in/hirokikamiyama"
+                href="https://linkedin.com/in/hankkamy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground"

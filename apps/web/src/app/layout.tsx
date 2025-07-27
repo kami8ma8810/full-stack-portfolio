@@ -9,23 +9,23 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Hiroki Kamiyama - Frontend Engineer",
-    template: "%s | Hiroki Kamiyama",
+    default: "Hank - Frontend Engineer",
+    template: "%s | Hank",
   },
   description: "Frontend engineer passionate about creating exceptional web experiences. Specializing in React, TypeScript, and modern web technologies.",
   keywords: ["Frontend Engineer", "React", "TypeScript", "Next.js", "Web Development"],
-  authors: [{ name: "Hiroki Kamiyama" }],
+  authors: [{ name: "Hank" }],
   openGraph: {
     type: "website",
     locale: "ja_JP",
-    url: "https://hirokikamiyama.com",
-    siteName: "Hiroki Kamiyama",
-    title: "Hiroki Kamiyama - Frontend Engineer",
+    url: "https://hankkamy.com",
+    siteName: "Hank",
+    title: "Hank - Frontend Engineer",
     description: "Frontend engineer passionate about creating exceptional web experiences.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hiroki Kamiyama - Frontend Engineer",
+    title: "Hank - Frontend Engineer",
     description: "Frontend engineer passionate about creating exceptional web experiences.",
   },
   robots: {
