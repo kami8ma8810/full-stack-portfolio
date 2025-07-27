@@ -1,0 +1,67 @@
+{
+  "common": {
+    "name": "Hiro Kamiyama",
+    "title": "Full Stack Developer",
+    "description": "Building modern web applications with cutting-edge technologies"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "subtitle": "I build exceptional digital experiences",
+    "cta": {
+      "projects": "View Projects",
+      "contact": "Get In Touch"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I'm a passionate full-stack developer with expertise in building scalable web applications. I love creating elegant solutions to complex problems and staying up-to-date with the latest technologies.",
+    "experience": {
+      "title": "Experience",
+      "years": "{years} years"
+    },
+    "education": {
+      "title": "Education"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Some of my recent work",
+    "viewProject": "View Project",
+    "viewCode": "View Code",
+    "technologies": "Technologies"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technologies I work with",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "devops": "DevOps",
+      "tools": "Tools"
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Feel free to reach out for collaborations or just a friendly chat",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    }
+  },
+  "footer": {
+    "copyright": "© {year} {name}. All rights reserved."
+  }
+}

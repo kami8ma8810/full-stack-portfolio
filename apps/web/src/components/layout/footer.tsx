@@ -1,28 +1,34 @@
-import Link from 'next/link';
+'use client';
 
-const footerLinks = {
-  main: [
-    { name: 'Blog', href: '/blog' },
-    { name: 'Works', href: '/works' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
-  ],
-  social: [
-    { name: 'GitHub', href: 'https://github.com/hankkamy' },
-    { name: 'Twitter', href: 'https://twitter.com/hankkamy' },
-    { name: 'LinkedIn', href: 'https://linkedin.com/in/hankkamy' },
-  ],
-};
+import Link from 'next/link';
+import { useTranslations, useLocale } from 'next-intl';
 
 export function Footer() {
+  const t = useTranslations('navigation');
+  const tCommon = useTranslations('common');
+  const tFooter = useTranslations('footer');
+  const locale = useLocale();
+
+  const footerLinks = {
+    main: [
+      { name: t('projects'), href: `/${locale}/works` },
+      { name: t('about'), href: `/${locale}/about` },
+      { name: t('contact'), href: `/${locale}/contact` },
+    ],
+    social: [
+      { name: 'GitHub', href: 'https://github.com/hankkamy' },
+      { name: 'Twitter', href: 'https://twitter.com/hankkamy' },
+      { name: 'LinkedIn', href: 'https://linkedin.com/in/hankkamy' },
+    ],
+  };
   return (
     <footer className="border-t">
       <div className="container py-8 md:py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div className="space-y-3">
-            <h3 className="text-lg font-semibold">Hank</h3>
+            <h3 className="text-lg font-semibold">{tCommon('name')}</h3>
             <p className="text-sm text-muted-foreground">
-              Frontend Engineer passionate about creating exceptional web experiences.
+              {tCommon('description')}
             </p>
           </div>
 
@@ -63,7 +69,7 @@ export function Footer() {
 
         <div className="mt-8 border-t pt-8">
           <p className="text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Hank. All rights reserved.
+            {tFooter('copyright', { year: new Date().getFullYear(), name: tCommon('name') })}
           </p>
         </div>
       </div>

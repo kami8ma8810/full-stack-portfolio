@@ -2,10 +2,12 @@
 
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
+import { useTranslations } from 'next-intl';
 import { contactApi } from '@/lib/api';
 import type { ContactForm as ContactFormData } from '@portfolio/types';
 
 export function ContactForm() {
+  const t = useTranslations('contact.form');
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -16,7 +18,7 @@ export function ContactForm() {
   const mutation = useMutation({
     mutationFn: contactApi.submit,
     onSuccess: () => {
-      alert('Message sent successfully! I\'ll get back to you soon.');
+      alert(t('success'));
       setFormData({
         name: '',
         email: '',
@@ -25,7 +27,7 @@ export function ContactForm() {
       });
     },
     onError: () => {
-      alert('Failed to send message. Please try again.');
+      alert(t('error'));
     },
   });
 
@@ -47,7 +49,7 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
         <label htmlFor="name" className="mb-2 block text-sm font-medium">
-          Name
+          {t('name')}
         </label>
         <input
           type="text"
@@ -62,7 +64,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="email" className="mb-2 block text-sm font-medium">
-          Email
+          {t('email')}
         </label>
         <input
           type="email"
@@ -92,7 +94,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="message" className="mb-2 block text-sm font-medium">
-          Message
+          {t('message')}
         </label>
         <textarea
           id="message"
@@ -110,7 +112,7 @@ export function ContactForm() {
         disabled={mutation.isPending}
         className="inline-flex h-10 w-full items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
       >
-        {mutation.isPending ? 'Sending...' : 'Send Message'}
+        {mutation.isPending ? t('sending') : t('submit')}
       </button>
     </form>
   );

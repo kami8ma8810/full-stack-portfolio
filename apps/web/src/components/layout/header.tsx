@@ -3,19 +3,22 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 import { cn } from '@/lib/utils';
-
-const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Works', href: '/works' },
-  { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
-];
+import { LanguageSwitcher } from '@/components/language-switcher';
 
 export function Header() {
   const pathname = usePathname();
+  const locale = useLocale();
+  const t = useTranslations('navigation');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navigation = [
+    { name: t('home'), href: `/${locale}` },
+    { name: t('projects'), href: `/${locale}/works` },
+    { name: t('about'), href: `/${locale}/about` },
+    { name: t('contact'), href: `/${locale}/contact` },
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -42,6 +45,7 @@ export function Header() {
               {item.name}
             </Link>
           ))}
+          <LanguageSwitcher />
         </div>
 
         <button
@@ -93,6 +97,9 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
+            <div className="px-3 py-2">
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
       )}

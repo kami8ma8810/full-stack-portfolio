@@ -1,0 +1,67 @@
+{
+  "common": {
+    "name": "神山 博",
+    "title": "フルスタックデベロッパー",
+    "description": "最新技術を活用したモダンなWebアプリケーションを構築"
+  },
+  "navigation": {
+    "home": "ホーム",
+    "about": "自己紹介",
+    "projects": "プロジェクト",
+    "skills": "スキル",
+    "contact": "お問い合わせ"
+  },
+  "hero": {
+    "greeting": "こんにちは、",
+    "subtitle": "優れたデジタル体験を創造します",
+    "cta": {
+      "projects": "プロジェクトを見る",
+      "contact": "お問い合わせ"
+    }
+  },
+  "about": {
+    "title": "自己紹介",
+    "description": "スケーラブルなWebアプリケーションの構築に情熱を注ぐフルスタックデベロッパーです。複雑な問題に対するエレガントなソリューションを作り出し、最新技術を常にキャッチアップしています。",
+    "experience": {
+      "title": "経験",
+      "years": "{years}年"
+    },
+    "education": {
+      "title": "学歴"
+    }
+  },
+  "projects": {
+    "title": "プロジェクト",
+    "subtitle": "最近の作品",
+    "viewProject": "プロジェクトを見る",
+    "viewCode": "コードを見る",
+    "technologies": "使用技術"
+  },
+  "skills": {
+    "title": "スキル",
+    "subtitle": "使用している技術",
+    "categories": {
+      "frontend": "フロントエンド",
+      "backend": "バックエンド",
+      "database": "データベース",
+      "devops": "DevOps",
+      "tools": "ツール"
+    }
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "subtitle": "コラボレーションやお気軽なお話など、お気軽にご連絡ください",
+    "form": {
+      "name": "お名前",
+      "email": "メールアドレス",
+      "message": "メッセージ",
+      "submit": "送信",
+      "sending": "送信中...",
+      "success": "メッセージを送信しました！",
+      "error": "送信に失敗しました。もう一度お試しください。"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} {name}. All rights reserved."
+  }
+}

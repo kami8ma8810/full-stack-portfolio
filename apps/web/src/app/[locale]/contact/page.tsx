@@ -1,19 +1,27 @@
 import { Metadata } from 'next';
 import { ContactForm } from '@/components/contact/contact-form';
+import { unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 
-export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Get in touch with me for collaborations or just to say hello.',
-};
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'contact' });
+  
+  return {
+    title: t('title'),
+    description: t('subtitle'),
+  };
+}
 
-export default function ContactPage() {
+export default async function ContactPage({ params: { locale } }: { params: { locale: string } }) {
+  unstable_setRequestLocale(locale);
+  const t = await getTranslations('contact');
+  
   return (
     <div className="container py-12">
       <div className="mx-auto max-w-2xl">
-        <h1 className="mb-8 text-4xl font-bold tracking-tight">Contact</h1>
+        <h1 className="mb-8 text-4xl font-bold tracking-tight">{t('title')}</h1>
         <p className="mb-12 text-lg text-muted-foreground">
-          Have a project in mind or want to collaborate? I&apos;d love to hear from
-          you. Send me a message and I&apos;ll get back to you as soon as possible.
+          {t('subtitle')}
         </p>
         
         <div className="mb-12 space-y-6">
