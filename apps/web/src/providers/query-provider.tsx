@@ -28,7 +28,8 @@ export function QueryProvider({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       {children}
-      {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
+      {/* 開発環境でのみReactQueryDevtoolsを表示 */}
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }

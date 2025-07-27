@@ -10,7 +10,9 @@ export class ApiClient {
   private defaultHeaders: HeadersInit;
 
   constructor(baseUrl?: string) {
-    this.baseUrl = baseUrl || process.env.NEXT_PUBLIC_API_URL || apiConfig.baseUrl;
+    // Next.jsで環境変数を使用する場合、ビルド時に値が埋め込まれる
+    // クライアントサイドで使用する場合はNEXT_PUBLIC_プレフィックスが必要
+    this.baseUrl = baseUrl || apiConfig.baseUrl;
     this.defaultHeaders = {
       'Content-Type': 'application/json',
     };

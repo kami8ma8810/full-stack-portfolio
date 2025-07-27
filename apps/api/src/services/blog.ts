@@ -7,7 +7,7 @@
 
 import type { Bindings } from '../types/bindings';
 import type { BlogPost } from '@portfolio/types';
-import { cacheConfig } from '@portfolio/config';
+import { cacheConfig } from '../config';
 
 export class BlogService {
   constructor(private env: Bindings) {}
