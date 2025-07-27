@@ -15,13 +15,15 @@ export function generateStaticParams() {
 
 export default async function LocaleLayout({
   children,
-  params: { locale },
+  params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+  
   // Ensure that the incoming locale is valid
-  if (!locales.includes(locale as 'en' | 'ja')) {
+  if (!locales.includes(locale as 'ja' | 'en')) {
     notFound();
   }
 
@@ -30,18 +32,14 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className="scroll-smooth">
-      <body className={`${inter.className} min-h-screen bg-background text-foreground antialiased`}>
-        <NextIntlClientProvider messages={messages}>
-          <QueryProvider>
-            <div className="relative flex min-h-screen flex-col">
-              <Header />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
-          </QueryProvider>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages}>
+      <QueryProvider>
+        <div className="relative flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
+      </QueryProvider>
+    </NextIntlClientProvider>
   );
 }
