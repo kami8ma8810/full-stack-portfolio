@@ -1,13 +1,14 @@
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import { QueryProvider } from "@/providers/query-provider";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
+// import { Header } from "@/components/layout/header";
+import { HeaderMinimal } from "@/components/layout/header-minimal";
+// import { Footer } from "@/components/layout/footer";
 import { locales } from "@/config/i18n";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -27,17 +28,19 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages();
 
   return (
     <NextIntlClientProvider messages={messages}>
       <QueryProvider>
         <div className="relative flex min-h-screen flex-col">
-          <Header />
+          {/* Temporarily showing locale for debugging */}
+          <div className="bg-yellow-200 p-2 text-center">
+            Debug: Current locale is "{locale}"
+          </div>
+          <HeaderMinimal />
           <main className="flex-1">{children}</main>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </QueryProvider>
     </NextIntlClientProvider>

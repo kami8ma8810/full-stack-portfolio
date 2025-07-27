@@ -1,20 +1,21 @@
 'use client';
 
-import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import { locales, localeNames, type Locale } from '@/config/i18n';
 import { cn } from '@/lib/utils';
+import { useCurrentLocale } from '@/hooks/use-current-locale';
 
 export function LanguageSwitcher() {
-  const locale = useLocale();
+  const currentLocale = useCurrentLocale();
   const router = useRouter();
   const pathname = usePathname();
 
   const handleLocaleChange = (newLocale: Locale) => {
-    // Get the current pathname without the locale
-    const segments = pathname.split('/');
-    segments[1] = newLocale;
-    const newPathname = segments.join('/');
+    // Replace the locale in the pathname
+    const newPathname = pathname.replace(/^\/(ja|en)/, `/${newLocale}`);
+    
+    // Set locale cookie
+    document.cookie = `locale=${newLocale};path=/`;
     
     router.push(newPathname);
   };
@@ -27,7 +28,7 @@ export function LanguageSwitcher() {
           onClick={() => handleLocaleChange(loc)}
           className={cn(
             "px-2 py-1 text-sm font-medium rounded transition-colors",
-            locale === loc
+            currentLocale === loc
               ? "bg-primary text-primary-foreground"
               : "text-muted-foreground hover:text-foreground hover:bg-accent"
           )}
