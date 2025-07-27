@@ -51,11 +51,12 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
   
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
@@ -67,16 +68,17 @@ html {
 
 /* フォーカスリングのカスタマイズ */
 *:focus-visible {
-  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--primary));
 }
 
 /* コードブロックのスタイル */
 pre {
-  @apply overflow-x-auto rounded-lg bg-dark-900 p-4 text-sm;
+  @apply overflow-x-auto rounded-lg bg-muted p-4 text-sm;
 }
 
 code {
-  @apply rounded bg-dark-800 px-1.5 py-0.5 text-sm;
+  @apply rounded bg-muted px-1.5 py-0.5 text-sm;
 }
 
 pre code {
@@ -90,15 +92,15 @@ pre code {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-dark-100 dark:bg-dark-800;
+  @apply bg-muted;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-dark-400 dark:bg-dark-600 rounded-md;
+  @apply bg-muted-foreground/20 rounded-md;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-dark-500 dark:bg-dark-500;
+  @apply bg-muted-foreground/30;
 }
 
 /* アニメーション */
