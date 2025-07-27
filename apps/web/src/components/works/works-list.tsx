@@ -25,10 +25,19 @@ export function WorksList() {
     );
   }
 
-  if (isError || !data) {
+  if (isError) {
     return (
       <div className="text-center text-muted-foreground">
         Failed to load works. Please try again later.
+      </div>
+    );
+  }
+
+  if (!data || data.length === 0) {
+    return (
+      <div className="text-center py-12">
+        <p className="text-muted-foreground mb-4">No works available yet.</p>
+        <p className="text-sm text-muted-foreground">Check back later for updates!</p>
       </div>
     );
   }
