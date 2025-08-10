@@ -4,72 +4,325 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    --font-size: 14px;
+    --background: #000000;
+    --foreground: #ffffff;
+    --card: #111111;
+    --card-foreground: #ffffff;
+    --popover: #111111;
+    --popover-foreground: #ffffff;
+    --primary: #FFFF00;
+    --primary-foreground: #000000;
+    --secondary: #1a1a1a;
+    --secondary-foreground: #ffffff;
+    --muted: #333333;
+    --muted-foreground: #cccccc;
+    --accent: #FFD700;
+    --accent-foreground: #000000;
+    --destructive: #ff4444;
+    --destructive-foreground: #ffffff;
+    --border: rgba(255, 255, 0, 0.2);
+    --input: #1a1a1a;
+    --input-background: #222222;
+    --switch-background: #333333;
+    --font-weight-medium: 500;
+    --font-weight-normal: 400;
+    --ring: #FFFF00;
+    --chart-1: #FFFF00;
+    --chart-2: #FFD700;
+    --chart-3: #FFA500;
+    --chart-4: #FF8C00;
+    --chart-5: #FF6347;
+    --radius: 0.625rem;
+    --sidebar: #111111;
+    --sidebar-foreground: #ffffff;
+    --sidebar-primary: #FFFF00;
+    --sidebar-primary-foreground: #000000;
+    --sidebar-accent: #1a1a1a;
+    --sidebar-accent-foreground: #ffffff;
+    --sidebar-border: rgba(255, 255, 0, 0.2);
+    --sidebar-ring: #FFFF00;
+    
+    /* 2025年トレンド: フォント */
+    --font-display: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
+    --font-body: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', 'Courier New', monospace;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+  .light {
+    --background: #ffffff;
+    --foreground: #000000;
+    --card: #f8f8f8;
+    --card-foreground: #000000;
+    --popover: #f8f8f8;
+    --popover-foreground: #000000;
+    --primary: #000000;
+    --primary-foreground: #FFFF00;
+    --secondary: #e8e8e8;
+    --secondary-foreground: #000000;
+    --muted: #cccccc;
+    --muted-foreground: #333333;
+    --accent: #000000;
+    --accent-foreground: #FFFF00;
+    --destructive: #cc0000;
+    --destructive-foreground: #ffffff;
+    --border: rgba(0, 0, 0, 0.2);
+    --input: #e8e8e8;
+    --ring: #000000;
+    --font-weight-medium: 500;
+    --font-weight-normal: 400;
+    --chart-1: #000000;
+    --chart-2: #333333;
+    --chart-3: #666666;
+    --chart-4: #999999;
+    --chart-5: #cccccc;
+    --sidebar: #f8f8f8;
+    --sidebar-foreground: #000000;
+    --sidebar-primary: #000000;
+    --sidebar-primary-foreground: #FFFF00;
+    --sidebar-accent: #e8e8e8;
+    --sidebar-accent-foreground: #000000;
+    --sidebar-border: rgba(0, 0, 0, 0.2);
+    --sidebar-ring: #000000;
   }
 }
 
 @layer base {
   * {
-    border-color: hsl(var(--border));
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-optical-sizing: auto;
+    font-variation-settings: "wght" 400;
   }
   
-  body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-    font-feature-settings: "rlig" 1, "calt" 1;
+  html {
+    scroll-behavior: smooth;
+    font-size: var(--font-size);
+  }
+
+  /* WCAG 2.2準拠：モーション無効化 */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* 高コントラストアクセシビリティ */
+  @media (prefers-contrast: high) {
+    :root {
+      --primary: #FFFF00;
+      --background: #000000;
+      --foreground: #ffffff;
+      --border: rgba(255, 255, 255, 0.8);
+      --muted-foreground: #ffffff;
+    }
+  }
+
+  /* フォーカス管理（WCAG 2.2準拠） */
+  *:focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* スキップリンク */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    padding: 12px 16px;
+    text-decoration: none;
+    z-index: 1000;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .skip-link:focus {
+    top: 6px;
+  }
+
+  /* 代替テキスト表示 */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 }
 
-/* スムーズスクロール */
-html {
-  scroll-behavior: smooth;
+/* 2025年トレンド: ブルータリズム風エフェクト */
+.brutalist-border {
+  border: 4px solid var(--primary);
+  box-shadow: 
+    8px 8px 0px var(--foreground),
+    12px 12px 0px var(--primary);
 }
 
-/* フォーカスリングのカスタマイズ */
-*:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--primary));
+.brutalist-button {
+  border: 3px solid var(--primary);
+  box-shadow: 
+    4px 4px 0px var(--foreground);
+  transition: all 0.1s ease;
+}
+
+.brutalist-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 
+    2px 2px 0px var(--foreground);
+}
+
+.brutalist-button:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* 2025年トレンド: 非対称レイアウト */
+.asymmetric-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+}
+
+.asymmetric-hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.asymmetric-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.asymmetric-cards > *:nth-child(2n) {
+  margin-top: 1rem;
+}
+
+.asymmetric-cards > *:nth-child(3n) {
+  margin-top: -0.5rem;
+}
+
+/* 2025年トレンド: レイヤード構成 */
+.layered-composition {
+  position: relative;
+  z-index: 1;
+}
+
+.layered-composition::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: var(--primary);
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.layered-composition::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: var(--accent);
+  z-index: -2;
+  opacity: 0.05;
+}
+
+/* 2025年トレンド: カラーブロッキング */
+.color-block-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 2rem;
+  position: relative;
+}
+
+.color-block-secondary {
+  background: var(--foreground);
+  color: var(--background);
+  padding: 2rem;
+  position: relative;
+}
+
+/* シンプルな背景パターン */
+.experimental-grid {
+  background-image: 
+    linear-gradient(var(--primary) 1px, transparent 1px),
+    linear-gradient(90deg, var(--primary) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.05;
+}
+
+/* ホバー効果（シンプル） */
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 0, 0.2);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 12px var(--primary);
+}
+
+.hover-tilt:hover {
+  transform: rotate(0.5deg) scale(1.01);
+}
+
+/* 適度なトランジション（WCAG準拠） */
+.transition-accessible {
+  transition: all 0.2s ease-in-out;
+}
+
+/* 2025年トレンド: 大胆なタイポグラフィー */
+.typography-display {
+  font-family: var(--font-display);
+  font-variation-settings: "wght" 800;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+.typography-headline {
+  font-family: var(--font-display);
+  font-variation-settings: "wght" 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.typography-body {
+  font-family: var(--font-body);
+  font-variation-settings: "wght" 400;
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+
+.typography-mono {
+  font-family: var(--font-mono);
+  font-variation-settings: "wght" 500;
+  letter-spacing: 0.02em;
 }
 
 /* コードブロックのスタイル */
@@ -101,6 +354,24 @@ pre code {
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-muted-foreground/30;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .asymmetric-hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .asymmetric-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .asymmetric-cards > *:nth-child(2n),
+  .asymmetric-cards > *:nth-child(3n) {
+    margin-top: 0;
+  }
 }
 
 /* アニメーション */
