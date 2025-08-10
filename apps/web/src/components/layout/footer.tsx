@@ -22,24 +22,24 @@ export function Footer() {
     ],
   };
   return (
-    <footer className="border-t">
+    <footer className="brutalist-border border-b-0 border-l-0 border-r-0 color-block-secondary">
       <div className="container py-8 md:py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="asymmetric-grid grid-cols-1 md:grid-cols-3">
           <div className="space-y-3">
-            <h3 className="text-lg font-semibold">{tCommon('name')}</h3>
-            <p className="text-sm text-muted-foreground">
+            <h3 className="typography-headline text-xl text-primary">{tCommon('name')}</h3>
+            <p className="typography-body text-sm">
               {tCommon('description')}
             </p>
           </div>
 
           <div className="space-y-3">
-            <h4 className="text-sm font-semibold">Pages</h4>
+            <h4 className="typography-mono text-sm font-semibold">PAGES</h4>
             <ul className="space-y-2">
               {footerLinks.main.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground"
+                    className="typography-mono text-sm hover-glow inline-block py-1 transition-all"
                   >
                     {link.name}
                   </Link>
@@ -49,7 +49,7 @@ export function Footer() {
           </div>
 
           <div className="space-y-3">
-            <h4 className="text-sm font-semibold">Connect</h4>
+            <h4 className="typography-mono text-sm font-semibold">CONNECT</h4>
             <ul className="space-y-2">
               {footerLinks.social.map((link) => (
                 <li key={link.href}>
@@ -57,7 +57,7 @@ export function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground hover:text-foreground"
+                    className="typography-mono text-sm hover-glow inline-block py-1 transition-all"
                   >
                     {link.name}
                   </a>
@@ -67,8 +67,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t pt-8">
-          <p className="text-center text-sm text-muted-foreground">
+        <div className="mt-8 brutalist-border border-b-0 border-l-0 border-r-0 pt-8">
+          <p className="text-center typography-mono text-sm">
             {tFooter('copyright', { year: new Date().getFullYear(), name: tCommon('name') })}
           </p>
         </div>
