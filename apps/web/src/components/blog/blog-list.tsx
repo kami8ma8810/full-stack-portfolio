@@ -52,25 +52,25 @@ export function BlogList() {
         <div className="mb-8 flex flex-wrap gap-2">
           <button
             onClick={() => setSelectedTag(undefined)}
-            className={`rounded-full px-3 py-1 text-sm font-medium transition-colors ${
+            className={`brutalist-button px-4 py-2 typography-mono text-sm transition-all ${
               !selectedTag
                 ? 'bg-primary text-primary-foreground'
-                : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                : 'bg-background hover-scale'
             }`}
           >
-            All
+            ALL
           </button>
           {tags.map((tag) => (
             <button
               key={tag}
               onClick={() => setSelectedTag(tag)}
-              className={`rounded-full px-3 py-1 text-sm font-medium transition-colors ${
+              className={`brutalist-button px-4 py-2 typography-mono text-sm transition-all ${
                 selectedTag === tag
                   ? 'bg-primary text-primary-foreground'
-                  : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                  : 'bg-background hover-scale'
               }`}
             >
-              {tag}
+              {tag.toUpperCase()}
             </button>
           ))}
         </div>
@@ -78,32 +78,32 @@ export function BlogList() {
 
       <div className="space-y-8">
         {posts.map((post) => (
-          <article key={post.id} className="group">
-            <time className="text-sm text-muted-foreground">
+          <article key={post.id} className="group brutalist-border p-6 hover-lift transition-accessible">
+            <time className="typography-mono text-xs text-primary">
               {formatDate(post.publishedAt)}
             </time>
-            <h2 className="mb-2 mt-1 text-2xl font-semibold">
+            <h2 className="mb-2 mt-1 typography-headline text-2xl">
               <Link
                 href={`/blog/${post.slug}`}
-                className="hover:underline"
+                className="hover:text-primary transition-colors"
               >
                 {post.title}
               </Link>
             </h2>
-            <p className="mb-4 text-muted-foreground">{post.excerpt}</p>
+            <p className="mb-4 typography-body text-muted-foreground">{post.excerpt}</p>
             <div className="flex items-center justify-between">
               <div className="flex flex-wrap gap-2">
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground"
+                    className="color-block-primary px-3 py-1 typography-mono text-xs"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-              <span className="text-sm text-muted-foreground">
-                {post.readingTime} min read
+              <span className="typography-mono text-sm text-muted-foreground">
+                {post.readingTime} MIN READ
               </span>
             </div>
           </article>
@@ -111,23 +111,23 @@ export function BlogList() {
       </div>
 
       {totalPages > 1 && (
-        <div className="mt-12 flex items-center justify-center gap-2">
+        <div className="mt-12 flex items-center justify-center gap-4">
           <button
             onClick={() => setPage(page - 1)}
             disabled={page === 1}
-            className="rounded-md px-3 py-1 text-sm font-medium transition-colors hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed"
+            className="brutalist-button px-4 py-2 typography-mono text-sm disabled:opacity-50 disabled:cursor-not-allowed hover-scale transition-accessible"
           >
-            Previous
+            PREVIOUS
           </button>
-          <span className="text-sm text-muted-foreground">
-            Page {page} of {totalPages}
+          <span className="typography-mono text-sm text-muted-foreground">
+            PAGE {page} / {totalPages}
           </span>
           <button
             onClick={() => setPage(page + 1)}
             disabled={page === totalPages}
-            className="rounded-md px-3 py-1 text-sm font-medium transition-colors hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed"
+            className="brutalist-button px-4 py-2 typography-mono text-sm disabled:opacity-50 disabled:cursor-not-allowed hover-scale transition-accessible"
           >
-            Next
+            NEXT
           </button>
         </div>
       )}

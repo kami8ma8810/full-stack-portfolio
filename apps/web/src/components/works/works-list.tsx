@@ -43,11 +43,11 @@ export function WorksList() {
   }
 
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="asymmetric-cards">
       {data.map((work) => (
         <article
           key={work.id}
-          className="group overflow-hidden rounded-lg border bg-card transition-colors hover:bg-accent"
+          className="group brutalist-border bg-card hover-lift transition-accessible overflow-hidden"
         >
           <Link href={`/works/${work.id}`}>
             <div className="aspect-video overflow-hidden bg-muted">
@@ -62,23 +62,23 @@ export function WorksList() {
               )}
             </div>
             <div className="p-6">
-              <h3 className="mb-2 text-lg font-semibold group-hover:underline">
+              <h3 className="mb-2 typography-headline text-lg group-hover:text-primary transition-colors">
                 {work.title}
               </h3>
-              <p className="mb-4 line-clamp-2 text-sm text-muted-foreground">
+              <p className="mb-4 line-clamp-2 text-sm text-muted-foreground typography-body">
                 {work.description}
               </p>
               <div className="flex flex-wrap gap-2">
                 {work.technologies.slice(0, 3).map((tech) => (
                   <span
                     key={tech}
-                    className="inline-flex items-center rounded-md bg-secondary px-2 py-1 text-xs font-medium text-secondary-foreground"
+                    className="color-block-primary px-3 py-1 typography-mono text-xs"
                   >
                     {tech}
                   </span>
                 ))}
                 {work.technologies.length > 3 && (
-                  <span className="inline-flex items-center px-2 py-1 text-xs text-muted-foreground">
+                  <span className="inline-flex items-center px-2 py-1 typography-mono text-xs text-muted-foreground">
                     +{work.technologies.length - 3} more
                   </span>
                 )}
