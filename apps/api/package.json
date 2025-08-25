@@ -10,22 +10,22 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@cloudflare/workers-types": "^4.20250726.0",
-    "@hono/zod-validator": "^0.4.3",
-    "@notionhq/client": "^2.3.0",
+    "@cloudflare/workers-types": "^4.20250823.0",
+    "@hono/zod-validator": "^0.7.2",
+    "@notionhq/client": "^4.0.2",
     "@portfolio/config": "workspace:*",
     "@portfolio/types": "workspace:*",
-    "hono": "^4.8.9",
-    "zod": "^3.25.76"
+    "hono": "^4.9.4",
+    "zod": "^4.1.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.19.0",
+    "@eslint/js": "^9.34.0",
     "@types/node": "^22.12.0",
-    "@typescript-eslint/eslint-plugin": "^8.20.0",
-    "@typescript-eslint/parser": "^8.20.0",
+    "@typescript-eslint/eslint-plugin": "^8.40.0",
+    "@typescript-eslint/parser": "^8.40.0",
     "eslint": "^9.19.0",
     "typescript": "^5.7.2",
-    "vitest": "^2.1.9",
-    "wrangler": "^3.114.11"
+    "vitest": "^3.2.4",
+    "wrangler": "^4.32.0"
   }
 }
